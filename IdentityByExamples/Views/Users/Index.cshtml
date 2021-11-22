@@ -1,0 +1,29 @@
+﻿@model List<User>
+
+<h1 class="mb-5">Users</h1>
+<table class="table  table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">ID</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+     {
+         <tr class="table-light ">
+             <td scope="row">@item.Id</td>
+             <td>@item.FirstName</td>
+             <td>@item.LastName</td>
+             <td>@item.Email</td>
+             <td><form method="post">
+                    <input asp-action="Delete" asp-route-Id="@item.Id" class="btn btn btn-danger" type="submit" value="Delete"/>
+                </form>
+             </td>
+         </tr>
+     }
+  </tbody>
+</table>
